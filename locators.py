@@ -1,0 +1,40 @@
+from selenium.webdriver.common.by import By
+
+ENTER_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[1]/div/button')
+NO_ACCAUNT_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[3]/button[2]')
+REG_EMAIL_FIELD = (By.NAME, 'email')
+REG_PASSWORD_FIELD = (By.NAME, 'password')
+REG_PASSWORD_REPEAT_FIELD = (By.NAME, 'submitPassword')
+CREATE_ACCAUNT_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[3]/button[1]')
+REG_EMAIL_ERROR_FIELD = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[2]/div[1]/div/div')
+REG_PASSWORD_ERROR_FIELD = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[2]/div[2]/div/div')
+REG_PASSWORD_ERROR_REPEAT_FIELD = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[2]/div[3]/div/div')
+LOGIN_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[3]/button[1]')
+LOGIN_EMAIL_FIELD = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[2]/div[1]/div/div/input')
+LOGIN_PASSWORD_FIELD = (By.XPATH,'//*[@id="root"]/div/div[2]/div[5]/form/div[2]/div[2]/div/div/input')
+AVATAR = (By.CLASS_NAME, 'circleSmall')
+USERNAME = (By.XPATH, '//*[@id="root"]/div/div[1]/div/div[1]/div/h3')
+LOGOUT_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[1]/div/div/div/button')
+MAKE_POST_BUTTON = (By.XPATH, "//button[contains(normalize-space(.), 'Разместить объявление')]")
+MODAL_HEADING_UNAUTHORIZED_USER_MAKE_POST = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[1]/h1')
+ADD_PHOTO_BUTTON_1 = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[1]/div[1]/button')
+PRODUCT_NAME = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[2]/div[1]/div/div/input')
+CATEGORY_DROPDOWN_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[2]/div[2]/div[1]/button')
+CATEGORY_DROPDOWN_BOOK = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[2]/div[2]/div[2]/button[2]')
+RADIOBUTTON_BU = (By.CLASS_NAME, 'radioUnput_inputRegular__FbVbr')
+CITY_DROPDOWN_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[3]/div[1]/button')
+CITY_DROPDOWN_NOVOSIBIRSK = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[3]/div[2]/button[3]')
+PRODUCT_DESCRIPTION = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[4]/div/textarea')
+PRODUCT_COST = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[5]/div/div/input')
+PRODUCT_POST_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/button')
+SAVE_CHANGES_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/form/div[1]/button')
+FUTER = (By.CLASS_NAME, 'App_linkBlock__RGu0p')
+NEXT_PAGE_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div[4]/div/div[2]/button[2]')
+APPLY_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/form/div[2]/button')
+PROFILE_AVATAR = (By.CLASS_NAME, 'circleLarge')
+ 
+def my_post_header(product_name):
+    return (
+        By.XPATH,
+        f'//*[normalize-space(text())="{product_name}"]'
+    )
