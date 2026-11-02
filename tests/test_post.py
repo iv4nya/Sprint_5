@@ -5,22 +5,23 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import MAKE_POST_BUTTON, FUTER, NEXT_PAGE_BUTTON, APPLY_BUTTON, MODAL_HEADING_UNAUTHORIZED_USER_MAKE_POST, SAVE_CHANGES_BUTTON, ENTER_BUTTON, AVATAR, LOGIN_EMAIL_FIELD, LOGIN_PASSWORD_FIELD, LOGIN_BUTTON, ADD_PHOTO_BUTTON_1, PRODUCT_NAME, CATEGORY_DROPDOWN_BUTTON, CATEGORY_DROPDOWN_BOOK, RADIOBUTTON_BU, CITY_DROPDOWN_BUTTON, CITY_DROPDOWN_NOVOSIBIRSK, PRODUCT_DESCRIPTION, PRODUCT_COST, PRODUCT_POST_BUTTON, my_post_header
+from data import modal_heading_text, test_user_email, test_user_pass
+from urls import page_url
 
 class TestMakePost():
 
-    def test_make_post_unauthorized_user(self, driver, page_url):
+    def test_make_post_unauthorized_user(self, driver):
         driver.get(page_url)
         WebDriverWait(driver, 20).until(expected_conditions.visibility_of_element_located((ENTER_BUTTON)))
         driver.find_element(*MAKE_POST_BUTTON).click()
-        assert WebDriverWait(driver, 20).until(expected_conditions. visibility_of_element_located((By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[1]/h1')))
+        assert WebDriverWait(driver, 20).until(expected_conditions. visibility_of_element_located((MODAL_HEADING_UNAUTHORIZED_USER_MAKE_POST)))
         element_modal_heading = driver.find_element(*MODAL_HEADING_UNAUTHORIZED_USER_MAKE_POST)
-        assert element_modal_heading.text == 'Чтобы разместить объявление, авторизуйтесь'
-        driver.quit()
+        assert element_modal_heading.text == modal_heading_text
 
-    def test_make_post_authorized_user(self, driver, page_url, test_user_email, test_user_pass):
+    def test_make_post_authorized_user(self, driver):
         driver.get(page_url)
         driver.find_element(*ENTER_BUTTON).click()
-        WebDriverWait(driver, 20).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[1]/h1')))
+        WebDriverWait(driver, 20).until(expected_conditions.visibility_of_element_located((LOGIN_EMAIL_FIELD)))
         driver.find_element(*LOGIN_EMAIL_FIELD).send_keys(test_user_email)
         driver.find_element(*LOGIN_PASSWORD_FIELD).send_keys(test_user_pass)
         driver.find_element(*LOGIN_BUTTON).click()
@@ -54,4 +55,3 @@ class TestMakePost():
         element_new_card = driver.find_element(*my_post_header(product_name))
         assert element_new_card.is_displayed()
         assert element_new_card.text == product_name
-        driver.quit()
