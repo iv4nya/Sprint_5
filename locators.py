@@ -1,0 +1,41 @@
+from selenium.webdriver.common.by import By
+
+ENTER_BUTTON = (By.XPATH, '//button[contains(text(), "Вход и регистрация")]')
+NO_ACCAUNT_BUTTON = (By.XPATH, '//button[contains(text(), "Нет аккаунта")]')
+REG_EMAIL_FIELD = (By.NAME, 'email')
+REG_PASSWORD_FIELD = (By.NAME, 'password')
+REG_PASSWORD_REPEAT_FIELD = (By.NAME, 'submitPassword')
+CREATE_ACCAUNT_BUTTON = (By.XPATH, '//button[contains(text(), "Создать аккаунт")]')
+REG_EMAIL_ERROR_FIELD = (By.CSS_SELECTOR, "div.input_inputError__fLUP9:has(input[name='email'])")
+REG_PASSWORD_ERROR_FIELD = (By.CSS_SELECTOR, 'div.input_inputError__fLUP9:has(input[name="password"])')
+REG_PASSWORD_ERROR_REPEAT_FIELD = (By.CSS_SELECTOR, 'div.input_inputError__fLUP9:has(input[name="submitPassword"])')
+REG_ERROR_TEXT = (By.CLASS_NAME, 'input_span__yWPqB')
+LOGIN_BUTTON = (By.XPATH, '//button[contains(text(), "Войти")]')
+LOGIN_EMAIL_FIELD = (By.CSS_SELECTOR, 'div.input_inputDefault__UmPK0 input[name="email"]')
+LOGIN_PASSWORD_FIELD = (By.CSS_SELECTOR, 'div.input_inputDefault__UmPK0 input[name="password"]')
+AVATAR = (By.CLASS_NAME, 'circleSmall')
+USERNAME = (By.CSS_SELECTOR, 'h3.profileText.name')
+LOGOUT_BUTTON = (By.XPATH, '//button[contains(text(), "Выйти")]')
+MAKE_POST_BUTTON = (By.XPATH, "//button[contains(normalize-space(.), 'Разместить объявление')]")
+MODAL_HEADING_UNAUTHORIZED_USER_MAKE_POST = (By.CLASS_NAME, 'popUp_titleRow__M7tGg')
+ADD_PHOTO_BUTTON_1 = (By.CLASS_NAME, 'upload_input__1FS6R')
+PRODUCT_NAME = (By.CSS_SELECTOR, 'div.input_inputDefault__UmPK0 input[name="name"]')
+CATEGORY_DROPDOWN_BUTTON = (By.CSS_SELECTOR, 'input[name="category"] + button')
+CATEGORY_DROPDOWN_BOOK = (By.XPATH, '//button[normalize-space(.)="Книги"]')
+RADIOBUTTON_BU = (By.CLASS_NAME, 'radioUnput_inputRegular__FbVbr')
+CITY_DROPDOWN_BUTTON = (By.CSS_SELECTOR, 'input[name="city"] + button')
+CITY_DROPDOWN_NOVOSIBIRSK = (By.XPATH, '//button[normalize-space(.)="Новосибирск"]')
+PRODUCT_DESCRIPTION = (By.CSS_SELECTOR, 'textarea[name="description"]')
+PRODUCT_COST = (By.CSS_SELECTOR, 'input[name="price"]')
+PRODUCT_POST_BUTTON = (By.XPATH, '//button[contains(text(), "Опубликовать")]')
+SAVE_CHANGES_BUTTON = (By.XPATH, '//button[contains(text(), "Сохранить изменения")]')
+FUTER = (By.CLASS_NAME, 'App_linkBlock__RGu0p')
+NEXT_PAGE_BUTTON = (By.CLASS_NAME, 'arrowButton.arrowButton--right.undefined')
+APPLY_BUTTON = (By.XPATH, "//button[contains(text(), 'Применить')]")
+PROFILE_AVATAR = (By.CLASS_NAME, 'circleLarge')
+ 
+def my_post_header(product_name):
+    return (
+        By.XPATH,
+        f'//*[normalize-space(text())="{product_name}"]'
+    )
